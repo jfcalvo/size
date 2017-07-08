@@ -26,15 +26,14 @@ $ mix deps.get
 Instead of define a magic number that nobody understand like:
 
 ```elixir
-disk_space = 12884901888
+> disk_space = 12884901888
 ```
 
 You can better do the following:
 
 ```elixir
-import Size, only: :macros
-
-disk_space = gigabytes(12)
+> import Size, only: :macros
+> disk_space = gigabytes(12)
 ```
 
 A lot better, right?.
@@ -42,9 +41,8 @@ A lot better, right?.
 You can also work using bits instead of bytes:
 
 ```elixir
-import Size, only: :macros
-
-network_speed = megabits(3)
+> import Size, only: :macros
+> network_speed = megabits(3)
 ```
 
 The list of macros available are:
@@ -80,34 +78,34 @@ yottabits(yottabits)
 #### Examples
 
 ```elixir
-bytes(2.1) # Input in bytes, output in bytes
+> bytes(2.1) # Input in bytes, output in bytes
 3
 
-kilobytes(1) # Input in kilobytes, output in bytes
+> kilobytes(1) # Input in kilobytes, output in bytes
 1024
 
-megabytes(1) # Input in megabytes, output in bytes
+> megabytes(1) # Input in megabytes, output in bytes
 1048576
 
-megabytes(2) # Input in megabytes, output in bytes
+> megabytes(2) # Input in megabytes, output in bytes
 2097152
 
-megabytes(2.1) # Input in megabytes, output in bytes
+> megabytes(2.1) # Input in megabytes, output in bytes
 2202010
 
-gigabytes(12) # Input in gigabytes, output in bytes
+> gigabytes(12) # Input in gigabytes, output in bytes
 12884901888
 
-bits(2.1) # Input in bits, output in bits
+> bits(2.1) # Input in bits, output in bits
 3
 
-kilobits(1) # Input in kilobits, output in bits
+> kilobits(1) # Input in kilobits, output in bits
 1000
 
-megabits(100) # Input in megabits, output in bits
+> megabits(100) # Input in megabits, output in bits
 100000000
 
-gigabits(12.5) # Input in gigabits, output in bits
+> gigabits(12.5) # Input in gigabits, output in bits
 12500000000
 ```
 
@@ -116,10 +114,10 @@ gigabits(12.5) # Input in gigabits, output in bits
 `Size` provide `humanize(size, options)` and `humanize!(size, options)` functions to generate human-readable file sizes.
 
 ```elixir
-Size.humanize(1024)
+> Size.humanize(1024)
 {:ok, "1 KB"}
 
-Size.humanize!(1024)
+> Size.humanize!(1024)
 "1 KB"
 ```
 
@@ -136,57 +134,57 @@ Size.humanize!(1024)
 * `:bits` specifies whether the output will use bits instead of bytes (default: `false`).
 
   ```elixir
-  Size.humanize(1000, bits: true)
+  > Size.humanize(1000, bits: true)
   {:ok, "8 Kb"}
   ```
 
 * `:round` specifies using an integer the round to be done to the result value (default: `2`).
 
   ```elixir
-  Size.humanize(1234322, round: 1)
+  > Size.humanize(1234322, round: 1)
   {:ok, "1.2 MB"}
 
-  Size.humanize(1234322, round: 0)
+  > Size.humanize(1234322, round: 0)
   {:ok, "1 MB"}
   ```
 
 * `:output` specifies the output type to be used, the possible values are `:tuple`, `:map` and `:string` (default: `:string`).
 
   ```elixir
-  Size.humanize(1024, output: :tuple)
+  > Size.humanize(1024, output: :tuple)
   {:ok, {1, "KB"}}
 
-  Size.humanize(1024, output: :map)
+  > Size.humanize(1024, output: :map)
   {:ok, %{symbol: "KB", value: 1}}
 
-  Size.humanize(1024, output: :string)
+  > Size.humanize(1024, output: :string)
   {:ok, "1 KB"}
 
-  Size.humanize!(1024, output: :tuple)
+  > Size.humanize!(1024, output: :tuple)
   {1, "KB"}
 
-  Size.humanize!(1024, output: :map)
+  > Size.humanize!(1024, output: :map)
   %{symbol: "KB", value: 1}
 
-  Size.humanize!(1024, output: :string)
+  > Size.humanize!(1024, output: :string)
   "1 KB"
   ```
 
 * `:spacer` specifies using a string the spacer to use between the value and the symbol (default: `" "`).
 
   ```elixir
-  Size.humanize(1024, spacer: "~")
+  > Size.humanize(1024, spacer: "~")
   {:ok, "1~KB"}
 
-  Size.humanize(1024, spacer: "")
+  > Size.humanize(1024, spacer: "")
   {:ok, "1KB"}
   ```
 
 * `:symbols` specifies a list of 9 string symbols to be used instead of the default one.
 
   ```elixir
-  alternative_symbols = ~w(bytes kilobytes megabytes gigabytes terabytes petabytes exabytes zettabytes yottabytes)
-  Size.humanize(2048, symbols: alternative_symbols)
+  > alternative_symbols = ~w(bytes kilobytes megabytes gigabytes terabytes petabytes exabytes zettabytes yottabytes)
+  > Size.humanize(2048, symbols: alternative_symbols)
   {:ok, "2 kilobytes"}
   ````
 
