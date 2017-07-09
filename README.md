@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/jfcalvo/size.svg?branch=master)](https://travis-ci.org/jfcalvo/size)
+
 # Size
 Size is a Elixir library that helps you working with file sizes.
 
