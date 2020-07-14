@@ -50,7 +50,7 @@ defmodule Size.Mixfile do
   defp package do
     [
       name: :size,
-      files: ["lib", "mix.exs", "README*"],
+      files: ["lib", "mix.exs", "README*", "LICENSE*"],
       maintainers: ["José Francisco Calvo"],
       licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/jfcalvo/size"}
