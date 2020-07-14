@@ -52,7 +52,7 @@ defmodule Size.Mixfile do
       name: :size,
       files: ["lib", "mix.exs", "README*"],
       maintainers: ["José Francisco Calvo"],
-      licenses: ["Apache 2.0"],
+      licenses: ["Apache-2.0"],
       links: %{"GitHub" => "https://github.com/jfcalvo/size"}
     ]
   end
